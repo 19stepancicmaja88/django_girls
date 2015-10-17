@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<html>
+<head> 
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+	<title>
+		Maja's blog
+	</title>
+	<meta charset="utf-8">
+</head>
+<body>
+    <div class="page-header">
+    	<h1>
+    		<a href="/">Maja's blog</a> at {{ time }}
+    	</h1>
+    </div>
+    <div class="content container"> 
+    	<div class="row"> 
+    		<div class="col-md-8">
+<img src="{% static "img/zivijo.JPG" %}" class = "img-responsive">
+    		{% for post in posts %}
+    		<div class="post">
+		    	<p>published: {{ post.published_date }}</p>
+		    	<h2><a href="post1.html">{{ post.title }}</a> </h2>
+		    	<p>{{ post.text }}</p>
+		    </div>
+		    {% endfor %}
+
+		    </div>
+    	</div>
+    </div>
+</body>
+</html>
